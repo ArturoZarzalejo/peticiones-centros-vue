@@ -1,0 +1,39 @@
+{
+  "name": "babel-vue-vuex-seed",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "serve-pre": "vue-cli-service serve --mode preproduction",
+    "serve-prod": "vue-cli-service serve --mode production",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "vue-cli-service test:unit",
+    "test-coverage": "vue-cli-service test:unit --coverage"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.5.22",
+    "vue-class-component": "^6.0.0",
+    "vue-i18n": "^8.0.0",
+    "vue-property-decorator": "^7.0.0",
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.5.4",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
+    "@types/jest": "^23.1.4",
+    "@types/webpack": "^4.4.0",
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-typescript": "^3.4.0",
+    "@vue/cli-plugin-unit-jest": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "ts-jest": "^23.0.0",
+    "typescript": "^3.0.0",
+    "vue-cli-plugin-i18n": "^0.5.1",
+    "vue-template-compiler": "^2.5.21"
+  }
+}

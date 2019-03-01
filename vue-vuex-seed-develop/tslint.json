@@ -1,0 +1,33 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "rules": {
+    "quotemark": [true, "single", "avoid-escape"],
+    "indent": [true, "tabs", 4],
+    "interface-name": false,
+    "ordered-imports": [true, {
+      "import-sources-order": "case-insensitive",
+      "named-imports-order": "case-insensitive"
+    }],
+    "object-literal-sort-keys": true,
+    "no-consecutive-blank-lines": [true, 2],
+    "max-line-length": [true, 150],
+    "jsdoc-format": false,
+    "no-console": [false],
+    "no-duplicate-variable": true,
+    "semicolon": [true],
+    "triple-equals": [true, "allow-null-check"],
+    "comment-format": [true, "check-space"],
+    "no-trailing-whitespace": false,
+    "align": [true, "parameters", "statements", "members", "elements"],
+    "eofline": false,
+    "max-classes-per-file": [true, 5]
+  }
+}
