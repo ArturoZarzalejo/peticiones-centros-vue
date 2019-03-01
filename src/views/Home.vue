@@ -1,6 +1,5 @@
 <template>
 	<div class="home">
-		<!-- <p>App version: {{appVersion}}</p> -->
 		<InformacionGeneral></InformacionGeneral>
 		<Perfiles></Perfiles>
 	</div>

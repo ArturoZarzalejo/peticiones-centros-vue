@@ -19,13 +19,13 @@
           full-width
           min-width="290px"
         >
-          <template v-slot:activator="{ on }">
+          <template #activator="data">
             <v-text-field
               v-model="date"
               label="Fecha de inicio aproximada"
               prepend-icon="event"
               readonly
-              v-on="on"
+              v-on="data.on"
             ></v-text-field>
           </template>
           <v-date-picker v-model="date" color="orange" @input="menu2 = false"></v-date-picker>

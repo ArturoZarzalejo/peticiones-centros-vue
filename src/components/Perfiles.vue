@@ -1,25 +1,29 @@
 <template>
   <div class="perfiles">
     <h2>Perfiles</h2>
-    <v-layout column>
+    <v-layout column wrap>
       <v-text-field v-model="cantidad" :rules="nameRules" label="cantidad" required></v-text-field>
-      <v-combobox
-        v-model="chips"
-        :items="items"
-        label="Your favorite hobbies"
-        chips
-        clearable
-        prepend-icon="filter_list"
-        solo
-        multiple
-      >
-        <template v-slot:selection="data">
-          <v-chip :selected="data.selected" close @input="remove(data.item)">
-            <strong>{{ data.item }}</strong>&nbsp;
-            <span>(interest)</span>
-          </v-chip>
-        </template>
-      </v-combobox>
+        <!-- <v-combobox
+          v-model="chips"
+          :items="items"
+          label="Your favorite hobbies"
+          chips
+          clearable
+          prepend-icon="filter_list"
+          solo
+        > -->
+        <v-checkbox v-model="checkbox1" :label="`asfasfasf`"></v-checkbox>
+        <v-flex xs12>
+          <v-combobox
+            v-model="chips"
+            :items="items"
+            chips
+
+            clearable
+            label="I use chips"
+            multiple
+          ></v-combobox>
+        </v-flex>
     </v-layout>
   </div>
 </template>
@@ -49,6 +53,7 @@ export default class Perfiles extends Vue {
 
   private data() {
     return {
+      checkbox1: true,
       valid: false,
       cantidad: "",
       items: ["Streaming", "Eating"]

@@ -1,7 +1,7 @@
 <template>
-	<v-flex id="app">
+	<div id="app">
 		<router-view/>
-	</v-flex>
+	</div>
 	<!-- <div id="app"> -->
 		<!-- <div id="nav">
 			<router-link to="/">Home</router-link>|
