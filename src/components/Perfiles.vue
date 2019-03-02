@@ -1,9 +1,9 @@
 <template>
-  <div class="perfiles">
+  <v-container fluid class="perfiles">
     <h2>Perfiles</h2>
-    <v-layout column wrap>
+    <v-layout wrap>
       <v-text-field v-model="cantidad" :rules="nameRules" label="cantidad" required></v-text-field>
-        <!-- <v-combobox
+      <!-- <v-combobox
           v-model="chips"
           :items="items"
           label="Your favorite hobbies"
@@ -11,21 +11,49 @@
           clearable
           prepend-icon="filter_list"
           solo
-        > -->
-        <v-checkbox v-model="checkbox1" :label="`asfasfasf`"></v-checkbox>
-        <v-flex xs12>
+      >-->
+      <v-checkbox v-model="checkbox1" :label="`asfasfasf`"></v-checkbox>
+      <!-- <v-flex>
+        <template>
           <v-combobox
             v-model="chips"
             :items="items"
+            label="Your favorite hobbies"
             chips
-
             clearable
-            label="I use chips"
+            prepend-icon="filter_list"
+            solo
+            deletable-chips
             multiple
-          ></v-combobox>
-        </v-flex>
+          >
+            <template v-slot:selection="data">
+              <v-chip :selected="data.selected" close @input="remove(data.item)">
+                <strong>{{ data.item }}</strong>&nbsp;
+                <span>(interest)</span>
+              </v-chip>
+            </template>
+          </v-combobox>
+        </template>
+      </v-flex> -->
+      <v-flex xs12>
+        <v-combobox 
+        v-model="select" :items="items" label="Tecnologias" multiple chips deletable-chips>
+          <template v-slot:selection="data">
+            <v-chip
+              :key="JSON.stringify(data.item)"
+              :selected="data.selected"
+              :disabled="data.disabled"
+              class="v-chip--select-multi"
+              @input="data.parent.selectItem(data.item)"
+            >
+              <v-avatar class="accent white--text" v-text="data.item.slice(0, 1).toUpperCase()"></v-avatar>
+              {{ data.item }}
+            </v-chip>
+          </template>
+        </v-combobox>
+      </v-flex>
     </v-layout>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -40,6 +68,8 @@ export default class Perfiles extends Vue {
     "Watching movies",
     "Sleeping"
   ];
+  private items = ["Streaming", "Eating"];
+  private select = ['Vuetify', 'Programming'];
   private nameRules = [];
 
   private created() {
@@ -56,7 +86,6 @@ export default class Perfiles extends Vue {
       checkbox1: true,
       valid: false,
       cantidad: "",
-      items: ["Streaming", "Eating"]
     };
   }
 }

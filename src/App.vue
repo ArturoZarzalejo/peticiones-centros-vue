@@ -1,6 +1,8 @@
 <template>
-	<div id="app">
-		<router-view/>
+	<div id="inspire">
+		<v-app id="inspire">
+			<router-view/>
+		</v-app>
 	</div>
 	<!-- <div id="app"> -->
 		<!-- <div id="nav">
@@ -20,7 +22,7 @@
 	font-family: var(--ff-principal);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
+	/* text-align: center; */
 	color: var(--c-secondary);
 }
 #nav {

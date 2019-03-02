@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div column class="home">
 		<InformacionGeneral></InformacionGeneral>
 		<Perfiles></Perfiles>
 	</div>
@@ -24,3 +24,10 @@ export default class Home extends Vue {
 	}
 }
 </script>
+
+<style>
+	.home {
+		padding: 1em
+	}
+</style>
+

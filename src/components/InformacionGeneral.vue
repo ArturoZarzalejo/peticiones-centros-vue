@@ -1,14 +1,26 @@
 <template>
-  <div class="home">
+  <v-container fluid class="informacion-general">
     <h2>Información General</h2>
-    <v-layout column>
-      <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
-      <v-text-field v-model="titulo" :rules="nameRules" label="titulo" required></v-text-field>
-      <v-text-field v-model="responsable" :rules="nameRules" label="responsable" required></v-text-field>
-      <v-text-field v-model="tiempoGarantia" :rules="nameRules" label="tiempoGarantia" required></v-text-field>
-      <v-text-field v-model="tipo" :rules="nameRules" label="tipo" required></v-text-field>
-      <v-text-field v-model="fechaInicioAprox" :rules="nameRules" label="fechaInicioAprox" required></v-text-field>
-      <v-flex xs12 sm6 md4>
+    <v-layout row wrap xs12>
+      <v-flex xs12 sm6 md6>
+        <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <v-text-field md4 v-model="titulo" :rules="nameRules" label="titulo" required></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <v-text-field md4 v-model="responsable" :rules="nameRules" label="responsable" required></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <v-text-field md4 v-model="tiempoGarantia" :rules="nameRules" label="tiempoGarantia" required></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <v-text-field md4 v-model="tipo" :rules="nameRules" label="tipo" required></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <v-text-field md4 v-model="fechaInicioAprox" :rules="nameRules" label="fechaInicioAprox" required></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
         <v-menu
           v-model="menu2"
           :close-on-content-click="false"
@@ -32,7 +44,7 @@
         </v-menu>
       </v-flex>
     </v-layout>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
