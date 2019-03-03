@@ -3,46 +3,22 @@
     <h2>Perfiles</h2>
     <v-layout wrap>
       <v-text-field v-model="cantidad" :rules="nameRules" label="cantidad" required></v-text-field>
-      <!-- <v-combobox
-          v-model="chips"
-          :items="items"
-          label="Your favorite hobbies"
-          chips
-          clearable
-          prepend-icon="filter_list"
-          solo
-      >-->
-      <v-checkbox v-model="checkbox1" :label="`asfasfasf`"></v-checkbox>
-      <!-- <v-flex>
-        <template>
-          <v-combobox
-            v-model="chips"
-            :items="items"
-            label="Your favorite hobbies"
-            chips
-            clearable
-            prepend-icon="filter_list"
-            solo
-            deletable-chips
-            multiple
-          >
-            <template v-slot:selection="data">
-              <v-chip :selected="data.selected" close @input="remove(data.item)">
-                <strong>{{ data.item }}</strong>&nbsp;
-                <span>(interest)</span>
-              </v-chip>
-            </template>
-          </v-combobox>
-        </template>
-      </v-flex> -->
+      <v-checkbox v-model="checkbox1" :label="`Prueba`"></v-checkbox>
       <v-flex xs12>
-        <v-combobox 
-        v-model="select" :items="items" label="Tecnologias" multiple chips deletable-chips>
+        <v-combobox
+          v-model="select"
+          :items="items"
+          label="Tecnologias"
+          multiple
+          chips
+          deletable-chips
+        >
           <template v-slot:selection="data">
             <v-chip
               :key="JSON.stringify(data.item)"
               :selected="data.selected"
               :disabled="data.disabled"
+              close
               class="v-chip--select-multi"
               @input="data.parent.selectItem(data.item)"
             >
@@ -51,6 +27,7 @@
             </v-chip>
           </template>
         </v-combobox>
+        <v-btn color="primary" raised v-on:click="getChips(items)">Get chips</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -69,11 +46,15 @@ export default class Perfiles extends Vue {
     "Sleeping"
   ];
   private items = ["Streaming", "Eating"];
-  private select = ['Vuetify', 'Programming'];
+  private select = ["Vuetify", "Programming"];
   private nameRules = [];
 
   private created() {
     this.appVersion = process.env.VUE_APP_VERSION;
+  }
+
+  private getChips(chips: Array<any>) {
+    console.log("lalala", chips);
   }
 
   private remove(item: any) {
@@ -85,7 +66,7 @@ export default class Perfiles extends Vue {
     return {
       checkbox1: true,
       valid: false,
-      cantidad: "",
+      cantidad: ""
     };
   }
 }

@@ -12,13 +12,25 @@
         <v-text-field md4 v-model="responsable" :rules="nameRules" label="responsable" required></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md6>
-        <v-text-field md4 v-model="tiempoGarantia" :rules="nameRules" label="tiempoGarantia" required></v-text-field>
+        <v-text-field
+          md4
+          v-model="tiempoGarantia"
+          :rules="nameRules"
+          label="tiempoGarantia"
+          required
+        ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md6>
         <v-text-field md4 v-model="tipo" :rules="nameRules" label="tipo" required></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md6>
-        <v-text-field md4 v-model="fechaInicioAprox" :rules="nameRules" label="fechaInicioAprox" required></v-text-field>
+        <v-text-field
+          md4
+          v-model="fechaInicioAprox"
+          :rules="nameRules"
+          label="fechaInicioAprox"
+          required
+        ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md6>
         <v-menu
@@ -43,6 +55,9 @@
           <v-date-picker v-model="date" color="orange" @input="menu2 = false"></v-date-picker>
         </v-menu>
       </v-flex>
+      <v-flex>
+        <v-btn color="primary" ripple v-on:click="clienteClick(cliente)">Clickame</v-btn>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -53,14 +68,19 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({})
 export default class InformacionGeneral extends Vue {
   private appVersion: any;
-
+  private date : any;
   private created() {
     this.appVersion = process.env.VUE_APP_VERSION;
+    this.date = new Date().toISOString().substr(0, 10);
+  }
+
+  private clienteClick(cliente: string) {
+    console.log("click", this.date);
   }
 
   private data() {
     return {
-      date: new Date().toISOString().substr(0, 10),
+      // date: new Date().toISOString().substr(0, 10),
       modal: false,
       menu2: false,
       valid: false,
