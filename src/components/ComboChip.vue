@@ -1,33 +1,27 @@
 <template>
-    <v-combobox
-        v-model="select"
-        :items="items"
-        label="Tecnologias"
-        multiple
-        chips
-        deletable-chips
-    >
-        <template v-slot:selection="data">
-        <v-chip
-            :key="JSON.stringify(data.item)"
-            :selected="data.selected"
-            :disabled="data.disabled"
-            close
-            class="v-chip--select-multi"
-            @input="data.parent.selectItem(data.item)"
-        >
-            <v-avatar class="accent white--text" v-text="data.item.slice(0, 1).toUpperCase()"></v-avatar>
-            {{ data.item }}
-        </v-chip>
-        </template>
-    </v-combobox>
+  <v-combobox v-model="select" :items="items" :label="title" multiple chips deletable-chips>
+    <template v-slot:selection="data">
+      <v-chip
+        :key="JSON.stringify(data.item)"
+        :selected="data.selected"
+        :disabled="data.disabled"
+        close
+        class="v-chip--select-multi"
+        @input="data.parent.selectItem(data.item)"
+      >
+        <v-avatar class="accent white--text" v-text="data.item.slice(0, 1).toUpperCase()"></v-avatar>
+        {{ data.item }}
+      </v-chip>
+    </template>
+  </v-combobox>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({})
 export default class ComboChip extends Vue {
+  @Prop() public title!: string;
   private appVersion: any;
   private chips = [
     "Programming",
@@ -35,7 +29,18 @@ export default class ComboChip extends Vue {
     "Watching movies",
     "Sleeping"
   ];
-  private items = ["Streaming", "Eating"];
+  private items = [
+    "Streaming",
+    "Eating",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+  ];
   private select = ["Vuetify", "Programming"];
   private nameRules = [];
 

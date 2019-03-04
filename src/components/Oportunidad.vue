@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid class="informacion-general">
-    <h2>Información General</h2>
+  <v-container fluid class="Oportunidad">
+    <h2>Oportunidad</h2>
     <v-layout row wrap xs12 class="prueba2">
       <v-flex xs12 sm6 md6>
         <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
@@ -33,27 +33,7 @@
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md6>
-        <v-menu
-          v-model="menu2"
-          :close-on-content-click="false"
-          :nudge-right="40"
-          lazy
-          transition="scale-transition"
-          offset-y
-          full-width
-          min-width="290px"
-        >
-          <template #activator="data">
-            <v-text-field
-              v-model="date"
-              label="Fecha de inicio aproximada"
-              prepend-icon="event"
-              readonly
-              v-on="data.on"
-            ></v-text-field>
-          </template>
-          <v-date-picker v-model="date" color="orange" @input="menu2 = false"></v-date-picker>
-        </v-menu>
+        <DatePickerGes></DatePickerGes>
       </v-flex>
       <v-flex>
         <v-btn color="primary" ripple v-on:click="clienteClick(cliente)">Clickame</v-btn>
@@ -64,9 +44,14 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import DatePickerGes from "@/components/DatePickerGes.vue";
 
-@Component({})
-export default class InformacionGeneral extends Vue {
+@Component({
+  components : {
+    DatePickerGes
+  }
+})
+export default class Oportunidad extends Vue {
   private appVersion: any;
   private date : any;
   private created() {

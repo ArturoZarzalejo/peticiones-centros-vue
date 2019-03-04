@@ -1,11 +1,23 @@
 <template>
   <v-container fluid class="perfiles">
     <h2>Perfiles</h2>
-    <v-layout wrap>
-      <v-text-field v-model="cantidad" :rules="nameRules" label="cantidad" required></v-text-field>
-      <v-checkbox v-model="checkbox1" :label="`Prueba`"></v-checkbox>
+    <v-layout wrap xs12>
+      <v-flex>
+        <v-text-field v-model="cantidad" :rules="nameRules" label="Cantidad" required></v-text-field>
+      </v-flex>
+      <v-flex>
+        <v-text-field v-model="categoria" :rules="nameRules" label="Categoria" required></v-text-field>
+      </v-flex>
+      <v-flex>
+        <v-checkbox v-model="checkbox1" :label="`Prueba`"></v-checkbox>
+      </v-flex>
+      <v-flex>
+        <v-flex xs12 sm6 d-flex>
+          <v-select :items="porcentajeAsignacion" label="Asignación"></v-select>
+        </v-flex>
+      </v-flex>
       <v-flex xs12>
-        <ComboChip></ComboChip>
+        <ComboChip title="Tecnologias"></ComboChip>
         <v-btn color="primary" raised v-on:click="getChips(items)">Get chips</v-btn>
       </v-flex>
     </v-layout>
@@ -18,7 +30,7 @@ import ComboChip from "@/components/ComboChip.vue";
 
 @Component({
   components: {
-    ComboChip,
+    ComboChip
   }
 })
 export default class Perfiles extends Vue {
@@ -32,6 +44,10 @@ export default class Perfiles extends Vue {
   private items = ["Streaming", "Eating"];
   private select = ["Vuetify", "Programming"];
   private nameRules = [];
+  private categoria = "";
+  private porcentajeAsignacion = [...Array(10)].map((element, indice) => {
+      return (indice * 10 + 10) + '%';
+  });
 
   private created() {
     this.appVersion = process.env.VUE_APP_VERSION;

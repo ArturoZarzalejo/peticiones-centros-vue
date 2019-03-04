@@ -1,18 +1,18 @@
 <template>
 	<div column class="home">
-		<InformacionGeneral></InformacionGeneral>
+		<Oportunidad></Oportunidad>
 		<Perfiles></Perfiles>
 	</div>
 </template>
 
 <script lang="ts">
-import InformacionGeneral from '@/components/InformacionGeneral.vue';
+import Oportunidad from '@/components/Oportunidad.vue';
 import Perfiles from '@/components/Perfiles.vue';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
 	components: {
-		InformacionGeneral,
+		Oportunidad,
 		Perfiles
 	},
 })
