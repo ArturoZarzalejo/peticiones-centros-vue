@@ -1,15 +1,24 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import modules from './store.modules';
+import { StoreActions } from './store.actions';
+import { StoreMutations } from './store.mutations';
+// import modules from './store.modules';
 import { RootState } from './store.types';
 
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
-	modules,
+	actions: StoreActions,
+	mutations: StoreMutations,
+	// modules,
 	state: {
+		categoriesEmployee: [],
 		isMocksActivated: process.env.VUE_APP_MOCKS_ACTIVATED === 'true',
-		version: '1.0.0',
+		petition: {},
+		qualityAssuranceTestingTypes: [],
+		technologiesCAC: [],
+		technologiesCDR: [],
+		technologiesCGIS: [],
 	},
 };
 

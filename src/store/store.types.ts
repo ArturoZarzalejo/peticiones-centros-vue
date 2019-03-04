@@ -1,4 +1,9 @@
 export interface RootState {
-	version: string;
 	isMocksActivated: boolean;
+	technologiesCDR: string[];
+	technologiesCAC: string[];
+	technologiesCGIS: string[];
+	categoriesEmployee: string[];
+	qualityAssuranceTestingTypes: string[];
+	petition: any;
 }

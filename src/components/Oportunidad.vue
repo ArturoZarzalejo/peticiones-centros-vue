@@ -70,10 +70,10 @@ import DatePickerGes from "@/components/DatePickerGes.vue";
 })
 export default class Oportunidad extends Vue {
   private appVersion: any;
-  private date : any;
+  private date: any;
   private created() {
-    this.appVersion = process.env.VUE_APP_VERSION;
-    this.date = new Date().toISOString().substr(0, 10);
+	this.appVersion = process.env.VUE_APP_VERSION;
+	this.date = new Date().toISOString().substr(0, 10);
   }
   private checkCGIS = false;
   private checkBBC = false;
@@ -81,31 +81,31 @@ export default class Oportunidad extends Vue {
   private comentario = '¿Algún comentario?';
 
   private clienteClick(cliente: string) {
-    console.log("click", this.date);
+	console.log('click', this.date);
   }
 
   private data() {
-    return {
-      // date: new Date().toISOString().substr(0, 10),
-      modal: false,
-      menu2: false,
-      valid: false,
-      cliente: "",
-      titulo: "",
-      responsable: "",
-      tiempoGarantia: "",
-      tipo: "",
-      fechaInicioAprox: "",
-      nameRules: [
-        // v => !!v || 'Name is required',
-        // v => v.length <= 10 || 'Name must be less than 10 characters'
-      ],
-      email: "",
-      emailRules: [
-        // v => !!v || 'E-mail is required',
-        // v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ]
-    };
+	return {
+		// date: new Date().toISOString().substr(0, 10),
+		modal: false,
+		menu2: false,
+		valid: false,
+		cliente: '',
+		titulo: '',
+		responsable: '',
+		tiempoGarantia: '',
+		tipo: '',
+		fechaInicioAprox: '',
+		nameRules: [
+		// v => !!v || 'Name is required',
+		// v => v.length <= 10 || 'Name must be less than 10 characters'
+		],
+		email: '',
+		emailRules: [
+		// v => !!v || 'E-mail is required',
+		// v => /.+@.+/.test(v) || 'E-mail must be valid'
+		],
+	};
   }
 }
 </script>

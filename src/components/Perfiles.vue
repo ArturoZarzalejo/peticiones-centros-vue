@@ -39,13 +39,13 @@ import ComboChip from "@/components/ComboChip.vue";
 export default class Perfiles extends Vue {
   private appVersion: any;
   private chips = [
-    "Programming",
-    "Playing video games",
-    "Watching movies",
-    "Sleeping"
+	'Programming',
+	'Playing video games',
+	'Watching movies',
+	'Sleeping',
   ];
-  private items = ["Streaming", "Eating"];
-  private select = ["Vuetify", "Programming"];
+  private items = ['Streaming', 'Eating'];
+  private select = ['Vuetify', 'Programming'];
   private nameRules = [];
   private categoria = "";
   private porcentajeAsignacion = [...Array(10)].map((element, indice) => {
@@ -54,24 +54,24 @@ export default class Perfiles extends Vue {
   private comentario = '¿Algún comentario?';
 
   private created() {
-    this.appVersion = process.env.VUE_APP_VERSION;
+	this.appVersion = process.env.VUE_APP_VERSION;
   }
 
-  private getChips(chips: Array<any>) {
-    console.log("lalala", chips);
+  private getChips(chips: any[]) {
+	console.log('lalala', chips);
   }
 
   private remove(item: any) {
-    this.chips.splice(this.chips.indexOf(item), 1);
-    this.chips = [...this.chips];
+	this.chips.splice(this.chips.indexOf(item), 1);
+	this.chips = [...this.chips];
   }
 
   private data() {
-    return {
-      checkbox1: true,
-      valid: false,
-      cantidad: ""
-    };
+	return {
+		checkbox1: true,
+		valid: false,
+		cantidad: '',
+	};
   }
 }
 </script>

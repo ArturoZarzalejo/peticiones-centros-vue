@@ -1,0 +1,59 @@
+{
+    "projectClient": "Sanitas",
+    "projectName": "Reembolsos",
+    "responsible": "Roberto Moreno",
+    "warrantyPeriod": "12 meses",
+    "types": ["Oportunidad", "Formacion"],
+    "startDate": "01/03/2019",
+    "endDate": "01/09/2019",
+    "technologies": ["Vue", "HTML"],
+    "technologiesNew": "AwesomeFramework.js",
+    "departmentsRequired": {
+        "CGIS": true,
+        "BBC": false,
+        "Sistemas": false
+    },
+    "technologiesCGIS": ["Monitorización"],
+    "comments": "Proyecto de alta exigencia!",
+    "profiles": [
+        {
+            "quantity": 1,
+            "categoryEmployee": "Intern",
+            "technologies": "HTML",
+            "startDate": "01/03/2019",
+            "endDate": "01/06/2019",
+            "location": "Cliente",
+            "locationAddress": "Ribera del Loira 52",
+            "assignment": 100,
+            "comments": "Proyecto ideal para aprender"
+        },
+        {
+            "quantity": 1,
+            "categoryEmployee": "Senior Developer",
+            "technologies": "Vue",
+            "startDate": "01/03/2019",
+            "endDate": "01/09/2019",
+            "location": "Cliente",
+            "locationAddress": "Ribera del Loira 52",
+            "assignment": 100,
+            "comments": "Proyecto ideal para gestionar"
+        }
+    ],
+    "profilesCAC": [
+        {
+            "quantity": 1,
+            "categoryEmployee": "Specialist",
+            "technologies": "Cucumber",
+            "startDate": "01/03/2019",
+            "endDate": "01/09/2019",
+            "testingTypes": ["Rendimiento", "Manuales"],
+            "assignment": 100,
+            "comments": "Proyecto ideal para aprender"
+        }
+    ],
+    "documents": {
+        "RFP": "drive.google.com/32123",
+        "proposal": "jira.babel.es/1312",
+        "planning": "drive.google.com/12321"
+    }
+}

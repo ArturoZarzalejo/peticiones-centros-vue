@@ -48,6 +48,9 @@ import Perfiles from "@/components/Perfiles.vue";
 import CAC from "@/components/CAC.vue";
 import { Component, Vue } from "vue-property-decorator";
 
+import { mapActions, mapState } from 'vuex';
+
+
 @Component({
   components: {
     Oportunidad,
