@@ -1,6 +1,7 @@
 <template>
   <div class="CAC">
-    <slot></slot>
+    <slot name="add"></slot>
+    <slot name="del"></slot>
     <v-layout wrap xs12>
       <v-flex>
         <v-text-field v-model="cantidad" :rules="nameRules" label="Cantidad" required></v-text-field>
@@ -75,3 +76,10 @@ export default class CAC extends Vue {
   }
 }
 </script>
+
+
+<style>
+.CAC {
+    padding: 2em;
+}
+</style>
