@@ -1,6 +1,6 @@
 <template>
   <div class="Oportunidad">
-    <v-layout row wrap xs12 class="prueba2">
+    <v-layout row wrap xs12 class="layout-oportunidad">
       <v-flex xs12 sm6 md4>
         <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
       </v-flex>
@@ -146,7 +146,7 @@ export default class Oportunidad extends Vue {
 </script>
 
 <style>
-.prueba2 > .flex {
+.layout-oportunidad > .flex {
   padding: 1em;
   box-sizing: border-box;
 }

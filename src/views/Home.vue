@@ -12,7 +12,7 @@
           <v-btn raised v-on:click="del()">Delete</v-btn>
         </Perfiles>
       </v-flex>-->
-      <v-flex xs12 lg5 mb-3>
+      <v-flex xs12 lg12 mb-12>
         <h2>Perfiles</h2>
         <v-btn raised v-on:click="add(perfilesGeneral)">Añadir Perfil</v-btn>
         <v-expansion-panel popout>
@@ -21,19 +21,19 @@
               <div>Item</div>
             </template>
             <v-card>
-              <CAC>
+              <Perfiles>
                 <template v-slot:del>
                   <v-btn v-on:click="del(perfilesGeneral)" color="primary" small dark right bottom>
                     <!-- <v-icon>close</v-icon> -->
                     close
                   </v-btn>
                 </template>
-              </CAC>
+              </Perfiles>
             </v-card>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-flex>
-      <v-flex xs12 lg5 mb-3>
+      <v-flex xs12 lg12 mb-12>
 		<h2>CAC</h2>
         <v-btn raised v-on:click="add(perfilesCAC)">Añadir Perfil</v-btn>
         <v-expansion-panel popout>
