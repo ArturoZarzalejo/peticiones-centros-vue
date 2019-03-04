@@ -1,6 +1,5 @@
 <template>
-  <v-container fluid class="Oportunidad">
-    <h2>Oportunidad</h2>
+  <div class="Oportunidad">
     <v-layout row wrap xs12 class="prueba2">
       <v-flex xs12 sm6 md6>
         <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
@@ -23,6 +22,15 @@
       <v-flex xs12 sm6 md6>
         <v-text-field md4 v-model="tipo" :rules="nameRules" label="tipo" required></v-text-field>
       </v-flex>
+      <v-flex>
+        <v-checkbox v-model="checkCGIS" :label="`CGIS`"></v-checkbox>
+      </v-flex>
+      <v-flex>
+        <v-checkbox v-model="checkBBC" :label="`BBC`"></v-checkbox>
+      </v-flex>
+      <v-flex>
+        <v-checkbox v-model="checkSistemas" :label="`Sistemas`"></v-checkbox>
+      </v-flex>
       <v-flex xs12 sm6 md6>
         <v-text-field
           md4
@@ -38,8 +46,17 @@
       <v-flex>
         <v-btn color="primary" ripple v-on:click="clienteClick(cliente)">Clickame</v-btn>
       </v-flex>
+      <v-flex>
+        <v-textarea
+          name="input"
+          label="Comentarios"
+          v-model="comentario"
+          auto-grow
+          rows="1"
+        ></v-textarea>
+      </v-flex>
     </v-layout>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -58,6 +75,10 @@ export default class Oportunidad extends Vue {
     this.appVersion = process.env.VUE_APP_VERSION;
     this.date = new Date().toISOString().substr(0, 10);
   }
+  private checkCGIS = false;
+  private checkBBC = false;
+  private checkSistemas = false;
+  private comentario = '¿Algún comentario?';
 
   private clienteClick(cliente: string) {
     console.log("click", this.date);
@@ -88,7 +109,6 @@ export default class Oportunidad extends Vue {
   }
 }
 </script>
-
 
 <style>
  .prueba2 > .flex {

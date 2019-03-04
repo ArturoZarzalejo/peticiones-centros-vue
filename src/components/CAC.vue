@@ -1,5 +1,5 @@
 <template>
-  <div class="perfiles">
+  <div class="CAC">
     <slot></slot>
     <v-layout wrap xs12>
       <v-flex>
@@ -36,7 +36,7 @@ import ComboChip from "@/components/ComboChip.vue";
     ComboChip
   }
 })
-export default class Perfiles extends Vue {
+export default class CAC extends Vue {
   private appVersion: any;
   private chips = [
     "Programming",
