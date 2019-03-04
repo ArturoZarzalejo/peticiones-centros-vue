@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="informacion-general">
     <h2>Información General</h2>
-    <v-layout row wrap xs12>
+    <v-layout row wrap xs12 class="prueba2">
       <v-flex xs12 sm6 md6>
         <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
       </v-flex>
@@ -103,3 +103,11 @@ export default class InformacionGeneral extends Vue {
   }
 }
 </script>
+
+
+<style>
+ .prueba2 > .flex {
+   padding: 1em;
+   box-sizing: border-box;
+}
+</style>

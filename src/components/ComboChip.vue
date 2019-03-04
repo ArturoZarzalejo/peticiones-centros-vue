@@ -1,27 +1,33 @@
 <template>
-  <v-container fluid class="perfiles">
-    <h2>Perfiles</h2>
-    <v-layout wrap>
-      <v-text-field v-model="cantidad" :rules="nameRules" label="cantidad" required></v-text-field>
-      <v-checkbox v-model="checkbox1" :label="`Prueba`"></v-checkbox>
-      <v-flex xs12>
-        <ComboChip></ComboChip>
-        <v-btn color="primary" raised v-on:click="getChips(items)">Get chips</v-btn>
-      </v-flex>
-    </v-layout>
-  </v-container>
+    <v-combobox
+        v-model="select"
+        :items="items"
+        label="Tecnologias"
+        multiple
+        chips
+        deletable-chips
+    >
+        <template v-slot:selection="data">
+        <v-chip
+            :key="JSON.stringify(data.item)"
+            :selected="data.selected"
+            :disabled="data.disabled"
+            close
+            class="v-chip--select-multi"
+            @input="data.parent.selectItem(data.item)"
+        >
+            <v-avatar class="accent white--text" v-text="data.item.slice(0, 1).toUpperCase()"></v-avatar>
+            {{ data.item }}
+        </v-chip>
+        </template>
+    </v-combobox>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import ComboChip from "@/components/ComboChip.vue";
 
-@Component({
-  components: {
-    ComboChip,
-  }
-})
-export default class Perfiles extends Vue {
+@Component({})
+export default class ComboChip extends Vue {
   private appVersion: any;
   private chips = [
     "Programming",
