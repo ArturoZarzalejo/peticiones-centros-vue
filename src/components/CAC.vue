@@ -1,6 +1,5 @@
 <template>
   <div class="CAC">
-    <slot name="add"></slot>
     <slot name="del"></slot>
     <v-layout wrap xs12>
       <v-flex>
