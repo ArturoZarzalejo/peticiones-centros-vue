@@ -105,7 +105,7 @@ export default class Oportunidad extends Vue {
   private checkCGIS = false;
   private checkBBC = false;
   private checkSistemas = false;
-  private comentario = "¿Algún comentario?";
+  private comentario = "";
   private responsable = "Arturo Zarzalejo";
   private nombreOportunidad = "";
   private itemsTipo = [
