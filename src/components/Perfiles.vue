@@ -1,6 +1,5 @@
 <template>
   <div class="perfiles">
-    <slot name="del"></slot>
     <v-layout row wrap xs12 sm12 md12 class="layout-perfiles">
       <v-flex xs12 sm6 md6>
         <v-text-field v-model="cantidad" :rules="nameRules" label="Cantidad" required></v-text-field>
@@ -29,6 +28,7 @@
       <v-flex xs12 sm12 md12>
         <v-textarea v-model="comentario" name="input" label="Comentarios" auto-grow rows="1"></v-textarea>
       </v-flex>
+      <slot name="del"></slot>
     </v-layout>
   </div>
 </template>
@@ -90,7 +90,7 @@ export default class Perfiles extends Vue {
 
 <style>
 .perfiles {
-  padding: 2em;
+  padding: 0 2em;
 }
 .layout-perfiles > .flex {
   padding: 1em;

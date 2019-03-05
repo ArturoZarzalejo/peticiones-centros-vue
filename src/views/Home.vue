@@ -13,8 +13,13 @@
         </Perfiles>
       </v-flex>-->
       <v-flex xs12 lg12 mb-12>
-        <h2>Perfiles</h2>
-        <v-btn raised v-on:click="add(perfilesGeneral)">Añadir Perfil</v-btn>
+        <v-layout justify-space-between>
+          <h2>Perfiles</h2>
+          <v-btn flat icon color="orange" v-on:click="add(perfilesGeneral)">
+            <v-icon>add</v-icon>
+            <!-- Añadir Perfil -->
+          </v-btn>
+        </v-layout>
         <v-expansion-panel popout>
           <v-expansion-panel-content v-for="(item,i) in perfilesGeneral" :key="i">
             <template v-slot:header>
@@ -23,10 +28,16 @@
             <v-card>
               <Perfiles>
                 <template v-slot:del>
-                  <v-btn v-on:click="del(perfilesGeneral)" color="primary" small dark right bottom>
-                    <!-- <v-icon>close</v-icon> -->
-                    close
-                  </v-btn>
+                  <!-- <v-flex> -->
+                  <v-layout justify-end>
+                    <!-- <v-flex > -->
+                    <v-btn v-on:click="del(perfilesGeneral)" color="primary" flat right bottom>
+                      <!-- <v-icon>close</v-icon> -->
+                      Eliminar
+                    </v-btn>
+                    <!-- </v-flex> -->
+                  </v-layout>
+                  <!-- </v-flex> -->
                 </template>
               </Perfiles>
             </v-card>
@@ -34,7 +45,7 @@
         </v-expansion-panel>
       </v-flex>
       <v-flex xs12 lg12 mb-12>
-		<h2>CAC</h2>
+        <h2>CAC</h2>
         <v-btn raised v-on:click="add(perfilesCAC)">Añadir Perfil</v-btn>
         <v-expansion-panel popout>
           <v-expansion-panel-content v-for="(item,i) in perfilesCAC" :key="i">
@@ -67,8 +78,7 @@
         </template>
       </CAC>
     </v-flex>-->
-
-  <button @click="showForm">Enviar form</button>
+    <button @click="showForm">Enviar form</button>
   </v-container>
 </template>
 
@@ -87,14 +97,10 @@ import { mapActions, mapState } from "vuex";
     CAC
   },
   methods: {
-    ...mapActions([
-      'setPetition'
-    ]),
+    ...mapActions(["setPetition"])
   },
   computed: {
-    ...mapState([
-      'petition'
-    ])
+    ...mapState(["petition"])
   }
 })
 export default class Home extends Vue {
@@ -109,16 +115,16 @@ export default class Home extends Vue {
     this.setPetition();
   }
 
-  private add(method:Array<any>) {
+  private add(method: Array<any>) {
     method.push({ unomas: "" });
   }
 
-  private del(method:Array<any>) {
+  private del(method: Array<any>) {
     method.shift();
   }
 
   showForm() {
-    console.log('Oportunidad: ', this.petition);
+    console.log("Oportunidad: ", this.petition);
   }
 }
 </script>
