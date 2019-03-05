@@ -96,11 +96,12 @@ import ComboChip from "@/components/ComboChip.vue";
   }
 })
 export default class Oportunidad extends Vue {
-  private appVersion: any;
   @Model('change') petition!: any;
   @Prop() technologies!: string[];
   @Prop() technologiesCgis!: string[];
   @Prop() types!: string[];
+
+  private nameRules: any[] = [(v: any) => !!v || "Cliente es un campo obligatorio"];
 }
 </script>
 
