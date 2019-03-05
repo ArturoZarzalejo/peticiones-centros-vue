@@ -3,7 +3,7 @@
     <v-card>
       <v-flex>
         <h2>Oportunidad</h2>
-        <Oportunidad v-model="petition"></Oportunidad>
+        <Oportunidad v-model="petition" :technologies="technologiesCDR" :technologies-cgis="technologiesCGIS" :types="opportunityTypes"></Oportunidad>
       </v-flex>
       <!-- <v-flex>
         <h2>Perfiles</h2>
@@ -88,12 +88,16 @@ import { mapActions, mapState } from "vuex";
   },
   methods: {
     ...mapActions([
-      'setPetition'
+      'setPetition',
+      'setSelectableInfoPetitionForm'
     ]),
   },
   computed: {
     ...mapState([
-      'petition'
+      'petition',
+      'technologiesCDR',
+      'technologiesCGIS',
+      'opportunityTypes'
     ])
   }
 })
@@ -102,11 +106,16 @@ export default class Home extends Vue {
   private perfilesCAC: Array<any> = [];
   private perfilesGeneral: Array<any> = [];
   private setPetition!: () => void;
+  private setSelectableInfoPetitionForm!: () => void;
   private petition!: any;
+  private technologiesCDR!: string[];
+  private technologiesCGIS!: string[];
+  private opportunityTypes!: string[];
 
   private created() {
     this.appVersion = process.env.VUE_APP_VERSION;
     this.setPetition();
+    this.setSelectableInfoPetitionForm();
   }
 
   private add(method:Array<any>) {

@@ -17,6 +17,9 @@ export const StoreMutations: MutationTree<RootState> = {
  setQualityAssuranceTestingTypes(state, qualityAssuranceTestingTypes: string[]): any {
 		state.qualityAssuranceTestingTypes = qualityAssuranceTestingTypes;
 	},
+ setOpportunityTypes(state, opportunityTypes: string[]): any {
+		state.opportunityTypes = opportunityTypes;
+	},
 	setPetition(state, petition: string[]): any {
 		state.petition = petition;
 	},

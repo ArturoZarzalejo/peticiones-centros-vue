@@ -23,7 +23,7 @@ import { Component, Vue, Prop, Model, Watch, Emit } from "vue-property-decorator
 export default class ComboChip extends Vue {
   @Prop() public title!: string;
   @Prop() public items!: string[];
-  @Model('change') itemsModel!: any;
+  @Model('update:combochip') itemsModel!: any;
   public itemsSelected: string[] = [];
 
   @Watch('itemsSelected')
@@ -31,7 +31,7 @@ export default class ComboChip extends Vue {
     this.updateItemsModel(itemsSelected);
   }
 
-  @Emit('input')
+  @Emit('update:combochip')
   updateItemsModel(items: string[]) {
     return items;
   }

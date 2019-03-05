@@ -39,6 +39,13 @@ export const StoreActions: ActionTree<RootState, RootState> = {
 					commit('setQualityAssuranceTestingTypes', response.data);
 				});
 	},
+	setOpportunityTypes({ commit, state }): any {
+		const endpoint = state.isMocksActivated ? StoreEndpoints.getOpportunityTypesMock : StoreEndpoints.getOpportunityTypes;
+		return axios.get(endpoint)
+				.then( (response) => {
+					commit('setOpportunityTypes', response.data);
+				});
+	},
 	setSelectableInfoPetitionForm({ dispatch }): any {
 		const setters = [];
 		setters.push(dispatch('setTechnologiesCDR'));
@@ -46,6 +53,7 @@ export const StoreActions: ActionTree<RootState, RootState> = {
 		setters.push(dispatch('setTechnologiesCGIS'));
 		setters.push(dispatch('setCategoriesEmployee'));
 		setters.push(dispatch('setQualityAssuranceTestingTypes'));
+		setters.push(dispatch('setOpportunityTypes'));
 
 		axios.all(setters).then(axios.spread( (res) => {
 			console.log('Recibida toda la informacion sobre el form correctamente');
