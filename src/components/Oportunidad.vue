@@ -2,12 +2,12 @@
   <div class="Oportunidad">
     <v-layout row wrap xs12 class="layout-oportunidad">
       <v-flex xs12 sm6 md4>
-        <v-text-field v-model="cliente" :rules="nameRules" label="Cliente" required></v-text-field>
+        <v-text-field v-model="petition.project_client" :rules="nameRules" label="Cliente" required></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4>
         <v-text-field
           md4
-          v-model="nombreOportunidad"
+          v-model="petition.project_name"
           :rules="nameRules"
           label="Nombre de la oportunidad"
           required
@@ -16,7 +16,7 @@
       <v-flex xs12 sm6 md4>
         <v-text-field
           md4
-          v-model="responsable"
+          v-model="petition.responsible"
           :rules="nameRules"
           label="Responsable"
           readonly
@@ -26,20 +26,20 @@
       <v-flex xs12 sm6 md4>
         <v-text-field
           md4
-          v-model="tiempoGarantia"
+          v-model="petition.warranty_period"
           :rules="nameRules"
           label="Tiempo de Garantía"
           required
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4>
-        <v-select :items="itemsTipo" label="Tipo" required></v-select>
+        <v-select :items="petition.types" label="Tipo" required></v-select>
       </v-flex>
       <v-flex xs12 sm6 md6>
-        <DatePickerGes title="Fecha de inicio aproximada"></DatePickerGes>
+        <DatePickerGes v-model="petition.start_date" title="Fecha de inicio aproximada"></DatePickerGes>
       </v-flex>
       <v-flex xs12 sm6 md6>
-        <DatePickerGes title="Fecha de fin aproximada"></DatePickerGes>
+        <DatePickerGes v-model="petition.end_date" title="Fecha de fin aproximada"></DatePickerGes>
       </v-flex>
       <v-flex xs12 sm6 md12>
         <ComboChip title="Tecnologias"></ComboChip>
@@ -47,7 +47,7 @@
       <!-- <v-flex xs12 sm6 md4>
         <v-text-field
           md4
-          v-model="tiempoGarantia"
+          v-model="petition.start_date"
           :rules="nameRules"
           label="tiempoGarantia"
           required
@@ -60,15 +60,15 @@
           </v-flex>
       </v-flex>
       <v-flex xs12 sm6 md3>
-        <v-checkbox v-model="checkCGIS" :label="`CGIS`"></v-checkbox>
+        <v-checkbox v-model="petition.department_required_cgis" :label="`CGIS`"></v-checkbox>
       </v-flex>
       <v-flex xs12 sm6 md3>
-        <v-checkbox v-model="checkBBC" :label="`BBC`"></v-checkbox>
+        <v-checkbox v-model="petition.department_required_bbc" :label="`BBC`"></v-checkbox>
       </v-flex>
       <v-flex xs12 sm6 md3>
-        <v-checkbox v-model="checkSistemas" :label="`Sistemas`"></v-checkbox>
+        <v-checkbox v-model="petition.department_required_sistemas" :label="`Sistemas`"></v-checkbox>
       </v-flex>
-      <v-flex v-if="checkCGIS" xs12 sm12 md12>
+      <v-flex v-if="petition.department_required_cgis" xs12 sm12 md12>
         <ComboChip title="CGIS"></ComboChip>
       </v-flex>
       <!-- <v-flex xs12 sm6 md6>
@@ -78,14 +78,14 @@
         <v-btn color="primary" ripple v-on:click="clienteClick(cliente)">Clickame</v-btn>
       </v-flex> -->
       <v-flex xs12 sm12 md12>
-        <v-textarea name="input" label="Comentarios" v-model="comentario" auto-grow rows="1"></v-textarea>
+        <v-textarea name="input" label="Comentarios" v-model="petition.comments" auto-grow rows="1"></v-textarea>
       </v-flex>
     </v-layout>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Model } from "vue-property-decorator";
 import DatePickerGes from "@/components/DatePickerGes.vue";
 import ComboChip from "@/components/ComboChip.vue";
 
@@ -97,17 +97,14 @@ import ComboChip from "@/components/ComboChip.vue";
 })
 export default class Oportunidad extends Vue {
   private appVersion: any;
-  private date: any;
-  private created() {
-    this.appVersion = process.env.VUE_APP_VERSION;
-    this.date = new Date().toISOString().substr(0, 10);
-  }
-  private checkCGIS = false;
-  private checkBBC = false;
-  private checkSistemas = false;
-  private comentario = "";
-  private responsable = "Arturo Zarzalejo";
-  private nombreOportunidad = "";
+  @Model('change') petition!: any;
+  
+  // private checkCGIS = false;
+  // private checkBBC = false;
+  // private checkSistemas = false;
+  // private comentario = "";
+  // private responsable = "Arturo Zarzalejo";
+  // private nombreOportunidad = "";
   private itemsTipo = [
     "Asistencia Técnica",
     "Consultoría",
@@ -117,10 +114,6 @@ export default class Oportunidad extends Vue {
     "Otros",
     "Piloto"
   ];
-
-  private clienteClick(cliente: string) {
-    console.log("click", this.date);
-  }
 
   private data() {
     return {

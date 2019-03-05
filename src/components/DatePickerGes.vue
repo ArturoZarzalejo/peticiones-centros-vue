@@ -10,23 +10,28 @@
     min-width="290px"
   >
     <template #activator="data">
-      <v-text-field v-model="date" :label="title" prepend-icon="event" readonly v-on="data.on"></v-text-field>
+      <v-text-field v-model="dateForDatepicker" :label="title" prepend-icon="event" readonly v-on="data.on"></v-text-field>
     </template>
-    <v-date-picker v-model="date" color="orange" @input="menu2 = false"></v-date-picker>
+    <v-date-picker v-model="dateForDatepicker" color="orange" @input="menu2 = false"></v-date-picker>
   </v-menu>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Model, Watch } from "vue-property-decorator";
 
 @Component({})
 export default class DatePickerGes extends Vue {
   @Prop() public title!: string;
-  private appVersion: any;
-  private date: any;
+  @Model('change') date!: any;
+  @Watch('dateForDatepicker')
+  onDatePicked(newDate: any, oldDate: any) {
+    this.date = this.dateForDatepicker;
+  }
+  
+  public dateForDatepicker!: any;
+
   private created() {
-    this.appVersion = process.env.VUE_APP_VERSION;
-    this.date = new Date().toISOString().substr(0, 10);
+    this.dateForDatepicker = this.date ? this.date : this.dateForDatepicker = new Date().toISOString().substr(0, 10);
   }
 
   private data() {

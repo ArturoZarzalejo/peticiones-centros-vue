@@ -1,59 +1,55 @@
 {
-    "projectClient": "Sanitas",
-    "projectName": "Reembolsos",
+    "project_client": "Sanitas",
+    "project_name": "Reembolsos",
     "responsible": "Roberto Moreno",
-    "warrantyPeriod": "12 meses",
+    "warranty_period": "12 meses",
     "types": ["Oportunidad", "Formacion"],
-    "startDate": "01/03/2019",
-    "endDate": "01/09/2019",
-    "technologies": ["Vue", "HTML"],
-    "technologiesNew": "AwesomeFramework.js",
-    "departmentsRequired": {
-        "CGIS": true,
-        "BBC": false,
-        "Sistemas": false
-    },
-    "technologiesCGIS": ["Monitorización"],
+    "start_date": "01/03/2019",
+    "end_date": "01/09/2019",
+    "technologies": ["Vue", "HTML", "Angular", "React"],
+    "technologies_new": "AwesomeFramework.js",
+    "department_required_cgis": true,
+    "department_required_bbc": false,
+    "department_required_sistemas": true,
+    "technologies_cgis": ["Monitorización"],
     "comments": "Proyecto de alta exigencia!",
     "profiles": [
         {
             "quantity": 1,
-            "categoryEmployee": "Intern",
-            "technologies": "HTML",
-            "startDate": "01/03/2019",
-            "endDate": "01/06/2019",
+            "category_employee": "Intern",
+            "technologies": ["HTML", "Angular", "React"],
+            "start_date": "01/03/2019",
+            "end_date": "01/06/2019",
             "location": "Cliente",
-            "locationAddress": "Ribera del Loira 52",
+            "location_address": "Ribera del Loira 52",
             "assignment": 100,
             "comments": "Proyecto ideal para aprender"
         },
         {
             "quantity": 1,
-            "categoryEmployee": "Senior Developer",
-            "technologies": "Vue",
-            "startDate": "01/03/2019",
-            "endDate": "01/09/2019",
+            "category_employee": "Senior Developer",
+            "technologies": ["Vue", "React"],
+            "start_date": "01/03/2019",
+            "end_date": "01/09/2019",
             "location": "Cliente",
-            "locationAddress": "Ribera del Loira 52",
+            "location_address": "Ribera del Loira 52",
             "assignment": 100,
             "comments": "Proyecto ideal para gestionar"
         }
     ],
-    "profilesCAC": [
+    "profiles_cac": [
         {
             "quantity": 1,
-            "categoryEmployee": "Specialist",
+            "category_employee": "Specialist",
             "technologies": "Cucumber",
-            "startDate": "01/03/2019",
-            "endDate": "01/09/2019",
-            "testingTypes": ["Rendimiento", "Manuales"],
+            "start_date": "01/03/2019",
+            "end_date": "01/09/2019",
+            "testing_types": ["Rendimiento", "Manuales"],
             "assignment": 100,
             "comments": "Proyecto ideal para aprender"
         }
     ],
-    "documents": {
-        "RFP": "drive.google.com/32123",
-        "proposal": "jira.babel.es/1312",
-        "planning": "drive.google.com/12321"
-    }
+    "document_rfp": "drive.google.com/32123",
+    "document_proposal": "drive.google.com/32123",
+    "document_planning": "drive.google.com/32123"
 }

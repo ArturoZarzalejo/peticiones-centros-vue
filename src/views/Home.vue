@@ -3,7 +3,7 @@
     <v-card>
       <v-flex>
         <h2>Oportunidad</h2>
-        <Oportunidad></Oportunidad>
+        <Oportunidad v-model="petition"></Oportunidad>
       </v-flex>
       <!-- <v-flex>
         <h2>Perfiles</h2>
@@ -67,6 +67,8 @@
         </template>
       </CAC>
     </v-flex>-->
+
+  <button @click="showForm">Enviar form</button>
   </v-container>
 </template>
 
@@ -83,15 +85,28 @@ import { mapActions, mapState } from "vuex";
     Oportunidad,
     Perfiles,
     CAC
+  },
+  methods: {
+    ...mapActions([
+      'setPetition'
+    ]),
+  },
+  computed: {
+    ...mapState([
+      'petition'
+    ])
   }
 })
 export default class Home extends Vue {
   private appVersion: any;
   private perfilesCAC: Array<any> = [];
   private perfilesGeneral: Array<any> = [];
+  private setPetition!: () => void;
+  private petition!: any;
 
   private created() {
     this.appVersion = process.env.VUE_APP_VERSION;
+    this.setPetition();
   }
 
   private add(method:Array<any>) {
@@ -100,6 +115,10 @@ export default class Home extends Vue {
 
   private del(method:Array<any>) {
     method.shift();
+  }
+
+  showForm() {
+    console.log('Oportunidad: ', this.petition);
   }
 }
 </script>
