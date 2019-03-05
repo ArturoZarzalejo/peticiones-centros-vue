@@ -14,6 +14,7 @@ const store: StoreOptions<RootState> = {
 	state: {
 		categoriesEmployee: [],
 		isMocksActivated: process.env.VUE_APP_MOCKS_ACTIVATED === 'true',
+		opportunityTypes: [],
 		petition: {},
 		qualityAssuranceTestingTypes: [],
 		technologiesCAC: [],

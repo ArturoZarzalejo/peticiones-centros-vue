@@ -17,52 +17,33 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop, Model, Watch, Emit } from "vue-property-decorator";
 
 @Component({})
 export default class ComboChip extends Vue {
   @Prop() public title!: string;
-  private appVersion: any;
-  private chips = [
-    "Programming",
-    "Playing video games",
-    "Watching movies",
-    "Sleeping"
-  ];
-  private items = [
-    "Streaming",
-    "Eating",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h"
-  ];
-  private select = ["Vuetify", "Programming"];
-  private nameRules = [];
+  @Prop() public items!: string[];
+  @Model('update:combochip') itemsModel!: any;
+  public itemsSelected: string[] = [];
 
-  private created() {
-    this.appVersion = process.env.VUE_APP_VERSION;
+  @Watch('itemsSelected')
+  onItemsSelected(itemsSelected: any) {
+    this.updateItemsModel(itemsSelected);
   }
 
-  private getChips(chips: Array<any>) {
-    console.log("lalala", chips);
+  @Emit('update:combochip')
+  updateItemsModel(items: string[]) {
+    return items;
   }
 
-  private remove(item: any) {
-    this.chips.splice(this.chips.indexOf(item), 1);
-    this.chips = [...this.chips];
+  @Watch('itemsModel')
+  onItemsModelChanged(itemsModel: any) {
+    this.itemsSelected = this.itemsModel;
   }
 
-  private data() {
-    return {
-      checkbox1: true,
-      valid: false,
-      cantidad: ""
-    };
+  created () {
+    this.itemsSelected = this.itemsModel;
   }
+
 }
 </script>
