@@ -1,5 +1,5 @@
 <template>
-  <v-combobox v-model="select" :items="items" :label="title" multiple chips deletable-chips>
+  <v-combobox v-model="select" :items="items" :label="title" multiple chips deletable-chips clearable>
     <template v-slot:selection="data">
       <v-chip
         :key="JSON.stringify(data.item)"

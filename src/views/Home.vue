@@ -15,7 +15,7 @@
         <v-expansion-panel popout>
           <v-expansion-panel-content v-for="(item,i) in perfilesGeneral" :key="i">
             <template v-slot:header>
-              <div>Item</div>
+              <div>Click para abrir</div>
             </template>
             <v-card>
               <Perfiles>
@@ -57,8 +57,14 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-flex>
+      <v-flex>
+        <v-layout>
+          <v-layout justify-end>
+            <v-btn @click="showForm" color="primary" flat>Enviar petición</v-btn>
+          </v-layout>
+        </v-layout>
+      </v-flex>
     </v-card>
-    <button @click="showForm">Enviar form</button>
   </v-container>
 </template>
 
@@ -103,7 +109,7 @@ export default class Home extends Vue {
     method.shift();
   }
 
-  showForm() {
+  private showForm() {
     console.log("Oportunidad: ", this.petition);
   }
 }
@@ -111,7 +117,7 @@ export default class Home extends Vue {
 
 <style>
 .home > .v-card {
-  padding: 1em;
+  padding: 1.5em;
 }
 </style>
 
