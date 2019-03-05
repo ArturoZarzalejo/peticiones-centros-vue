@@ -1,39 +1,44 @@
 <template>
   <div class="CAC">
-    <slot name="del"></slot>
-    <v-layout wrap xs12>
-      <v-flex>
+    <v-layout wrap xs12 class="layout-cac">
+      <v-flex xs12 sm6 md6>
         <v-text-field v-model="cantidad" :rules="nameRules" label="Cantidad" required></v-text-field>
       </v-flex>
-      <v-flex>
+      <v-flex xs12 sm6 md6>
         <v-text-field v-model="categoria" :rules="nameRules" label="Categoria" required></v-text-field>
       </v-flex>
-      <v-flex>
-        <v-checkbox v-model="checkbox1" :label="`Prueba`"></v-checkbox>
-      </v-flex>
-      <v-flex>
-        <v-flex xs12 sm6 d-flex>
-          <v-select :items="porcentajeAsignacion" label="Asignación"></v-select>
-        </v-flex>
-      </v-flex>
-      <v-flex xs12>
+      <v-flex xs12 sm12 md12>
         <ComboChip title="Tecnologias"></ComboChip>
-        <v-btn color="primary" raised v-on:click="getChips(items)">Get chips</v-btn>
       </v-flex>
+      <v-flex xs12 sm6 md6>
+        <DatePickerGes title="Fecha de inicio aproximada"></DatePickerGes>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <DatePickerGes title="Fecha de fin aproximada"></DatePickerGes>
+      </v-flex>
+      <v-flex xs12 sm12 md12>
+        <ComboChip title="Tipo de pruebas"></ComboChip>
+      </v-flex>
+      <v-flex xs12 sm6 md6>
+        <v-select :items="porcentajeAsignacion" label="Asignación"></v-select>
+      </v-flex>
+      <v-flex xs12 sm12 md12>
+        <v-textarea v-model="comentario" name="input" label="Comentarios" auto-grow rows="1"></v-textarea>
+      </v-flex>
+      <slot name="del"></slot>
     </v-layout>
-    <v-flex>
-      <v-textarea v-model="comentario" name="input" label="Comentarios" auto-grow rows="1"></v-textarea>
-    </v-flex>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import ComboChip from "@/components/ComboChip.vue";
+import DatePickerGes from "@/components/DatePickerGes.vue";
 
 @Component({
   components: {
-    ComboChip
+    ComboChip,
+    DatePickerGes
   }
 })
 export default class CAC extends Vue {
@@ -51,7 +56,7 @@ export default class CAC extends Vue {
   private porcentajeAsignacion = [...Array(10)].map((element, indice) => {
     return indice * 10 + 10 + "%";
   });
-  private comentario = '¿Algún comentario?';
+  private comentario = "¿Algún comentario?";
 
   private created() {
     this.appVersion = process.env.VUE_APP_VERSION;
@@ -79,6 +84,11 @@ export default class CAC extends Vue {
 
 <style>
 .CAC {
-    padding: 2em;
+  padding: 2em;
+}
+
+.layout-cac > .flex {
+  padding: 0.5em 1em;
+  box-sizing: border-box;
 }
 </style>

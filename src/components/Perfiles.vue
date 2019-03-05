@@ -93,7 +93,7 @@ export default class Perfiles extends Vue {
   padding: 0 2em;
 }
 .layout-perfiles > .flex {
-  padding: 1em;
+  padding: 0.5em 1em;
   box-sizing: border-box;
 }
 </style>
