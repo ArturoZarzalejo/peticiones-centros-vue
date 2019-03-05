@@ -42,7 +42,7 @@
         <DatePickerGes v-model="petition.end_date" title="Fecha de fin aproximada"></DatePickerGes>
       </v-flex>
       <v-flex xs12 sm6 md12>
-        <ComboChip title="Tecnologias"></ComboChip>
+        <ComboChip v-model="petition.technologies" :items="items" title="Tecnologias"></ComboChip>
       </v-flex>
       <!-- <v-flex xs12 sm6 md4>
         <v-text-field
@@ -69,7 +69,7 @@
         <v-checkbox v-model="petition.department_required_sistemas" :label="`Sistemas`"></v-checkbox>
       </v-flex>
       <v-flex v-if="petition.department_required_cgis" xs12 sm12 md12>
-        <ComboChip title="CGIS"></ComboChip>
+        <ComboChip v-model="petition.technologies_cgis" :items="items" title="CGIS"></ComboChip>
       </v-flex>
       <!-- <v-flex xs12 sm6 md6>
         <DatePickerGes></DatePickerGes>
@@ -105,6 +105,7 @@ export default class Oportunidad extends Vue {
   // private comentario = "";
   // private responsable = "Arturo Zarzalejo";
   // private nombreOportunidad = "";
+
   private itemsTipo = [
     "Asistencia Técnica",
     "Consultoría",
@@ -113,6 +114,19 @@ export default class Oportunidad extends Vue {
     "Mantenimiento/Servicio",
     "Otros",
     "Piloto"
+  ];
+
+  private items = [
+    "Streaming",
+    "Eating",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
   ];
 
   private data() {
