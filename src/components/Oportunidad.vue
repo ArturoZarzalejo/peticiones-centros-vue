@@ -33,7 +33,7 @@
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4>
-        <v-select :items="petition.types" label="Tipo" required></v-select>
+        <v-select v-model="petition.type" :items="types" label="Tipo" required></v-select>
       </v-flex>
       <v-flex xs12 sm6 md6>
         <DatePickerGes v-model="petition.start_date" title="Fecha de inicio aproximada"></DatePickerGes>
@@ -42,7 +42,7 @@
         <DatePickerGes v-model="petition.end_date" title="Fecha de fin aproximada"></DatePickerGes>
       </v-flex>
       <v-flex xs12 sm6 md12>
-        <ComboChip title="Tecnologias"></ComboChip>
+        <ComboChip v-model="petition.technologies" :items="technologies" title="Tecnologias"></ComboChip>
       </v-flex>
       <!-- <v-flex xs12 sm6 md4>
         <v-text-field
@@ -69,7 +69,7 @@
         <v-checkbox v-model="petition.department_required_sistemas" :label="`Sistemas`"></v-checkbox>
       </v-flex>
       <v-flex v-if="petition.department_required_cgis" xs12 sm12 md12>
-        <ComboChip title="CGIS"></ComboChip>
+        <ComboChip v-model="petition.technologies_cgis" :items="technologiesCgis" title="CGIS"></ComboChip>
       </v-flex>
       <!-- <v-flex xs12 sm6 md6>
         <DatePickerGes></DatePickerGes>
@@ -85,7 +85,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Model } from "vue-property-decorator";
+import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import DatePickerGes from "@/components/DatePickerGes.vue";
 import ComboChip from "@/components/ComboChip.vue";
 
@@ -98,43 +98,9 @@ import ComboChip from "@/components/ComboChip.vue";
 export default class Oportunidad extends Vue {
   private appVersion: any;
   @Model('change') petition!: any;
-  
-  // private checkCGIS = false;
-  // private checkBBC = false;
-  // private checkSistemas = false;
-  // private comentario = "";
-  // private responsable = "Arturo Zarzalejo";
-  // private nombreOportunidad = "";
-  private itemsTipo = [
-    "Asistencia Técnica",
-    "Consultoría",
-    "Desarrollo",
-    "Diseño",
-    "Mantenimiento/Servicio",
-    "Otros",
-    "Piloto"
-  ];
-
-  private data() {
-    return {
-      // date: new Date().toISOString().substr(0, 10),
-      modal: false,
-      menu2: false,
-      valid: false,
-      cliente: "",
-      titulo: "",
-      responsable: "Arturo Zarzalejo",
-      tiempoGarantia: "",
-      tipo: "",
-      fechaInicioAprox: "",
-      nameRules: [(v: any) => !!v || "Cliente es un campo obligatorio"],
-      email: "",
-      emailRules: [
-        // v => !!v || 'E-mail is required',
-        // v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ]
-    };
-  }
+  @Prop() technologies!: string[];
+  @Prop() technologiesCgis!: string[];
+  @Prop() types!: string[];
 }
 </script>
 

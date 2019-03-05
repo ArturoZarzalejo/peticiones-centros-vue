@@ -3,7 +3,7 @@
     "project_name": "Reembolsos",
     "responsible": "Roberto Moreno",
     "warranty_period": "12 meses",
-    "types": ["Oportunidad", "Formacion"],
+    "type": "Desarrollo",
     "start_date": "01/03/2019",
     "end_date": "01/09/2019",
     "technologies": ["Vue", "HTML", "Angular", "React"],

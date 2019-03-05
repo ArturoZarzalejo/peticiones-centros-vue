@@ -5,5 +5,6 @@ export interface RootState {
 	technologiesCGIS: string[];
 	categoriesEmployee: string[];
 	qualityAssuranceTestingTypes: string[];
+	opportunityTypes: string[];
 	petition: any;
 }

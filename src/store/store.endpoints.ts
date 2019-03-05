@@ -4,6 +4,8 @@ const baseUrlMock: string = '/mocks/';
 export const StoreEndpoints = {
 	getCategoriesEmployee: baseUrl + '',
 	getCategoriesEmployeeMock: baseUrlMock + 'categoriesEmployee.json',
+	getOpportunityTypes: baseUrl + '',
+	getOpportunityTypesMock: baseUrlMock + 'opportunityTypes.json',
 	getPetition: baseUrl + '',
 	getPetitionMock: baseUrlMock + 'petition.json',
 	getQualityAssuranceTestingTypes: baseUrl + '',
